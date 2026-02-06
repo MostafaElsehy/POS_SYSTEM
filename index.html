@@ -3,9 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <link rel="stylesheet" href="css/auth.css"> 
+    
+    <script src="js/auth.js" defer></script>
+
+    <title>Login & Register Page</title>
 </head>
 <body>
-    
+   <!-- ======================
+    Login & Register Page
+====================== -->
+<div class="auth-card" id="login-card">
+    <h2>System Access</h2>
+
+    <!-- Login fields -->
+    <input type="text" id="login-username" placeholder="Username">
+    <input type="password" id="login-password" placeholder="Password">
+
+    <!-- Login button -->
+    <button class="btn-login" onclick="handleLogin()">Login</button>
+
+    <!-- Link to switch to Register -->
+    <p><a href="#" onclick="toggleAuth()">New Admin/Cashier?</a></p>
+</div>
+
+
+
+
+
+
+<div class="auth-card" id="register-card" style="display: none;">
+    <h2>Create Account</h2>
+
+    <!-- Registration fields -->
+    <input type="text" id="reg-username" placeholder="Username">
+    <input type="password" id="reg-password" placeholder="Password">
+    <select id="user-role">
+        <option value="cashier">Cashier</option>
+        <option value="admin">Admin</option>
+    </select>
+
+    <!-- Register button -->
+    <button class="btn-register" onclick="handleRegister()">Register</button>
+
+    <!-- Link to switch back to Login -->
+    <p><a href="#" onclick="toggleAuth()">Back to Login</a></p>
+</div>
+
 </body>
 </html>

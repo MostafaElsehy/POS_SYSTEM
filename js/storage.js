@@ -1,13 +1,13 @@
-function saveToLocal(key, data) {
+export function saveToLocal(key, data) {
   try {
     const jsonData = JSON.stringify(data); // تحويل البيانات إلى JSON String
     localStorage.setItem(key, jsonData); // التخزين بالمفتاح
   } catch (error) {
-    console.error("Storage Full! Image too large.");
+    console.error("Storage Full!");
   }
 }
 
-function getFromLocal(key) {
+export function getFromLocal(key) {
   const storedData = localStorage.getItem(key);
 
   // لو مفيش بيانات

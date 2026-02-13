@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POS Terminal</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pos.css">
+</head>
+<body>
+
+  <div class="pos-container">
+
+    <!-- ===== Products Section ===== -->
+    <main class="products-section">
+
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <div>
+          <strong>Cashier:</strong>
+          <span id="user-name">...</span>
+        </div>
+
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search by Name or Scan Barcode..."
+        >
+
+        <button id="logout-btn" class="btn-danger">Exit</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div id="grid-products"></div>
+
+    </main>
+
+
+    <!-- ===== Cart Sidebar ===== -->
+    <aside class="cart-sidebar">
+
+      <h2>Current Order</h2>
+
+      <div id="cart-items"></div>
+
+      <div class="cart-footer">
+        <div>
+          <strong>Total</strong>
+          <span id="total-price">0.00 EGP</span>
+        </div>
+
+        <button id="checkout-btn">PAY & PRINT</button>
+      </div>
+
+    </aside>
+
+  </div>
+
+
+  <!-- ===== Receipt Modal ===== -->
+  <div id="receipt-modal" class="hidden">
+    <div class="modal-content">
+
+      <h2>Payment Successful</h2>
+
+      <div id="receipt-content"></div>
+
+      <div class="modal-actions">
+        <button id="print-btn">Print Receipt</button>
+        <button id="close-modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- JavaScript -->
+  <script type="module" src="js/pos.js"></script>
+
+</body>
+</html>

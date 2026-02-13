@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Store Dashboard</title>
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+<div class="dash-container">
+
+    <!-- ================= HEADER ================= -->
+    <header class="dash-header">
+        <h1>Store Management</h1>
+        <button id="logout-btn" class="btn danger">Logout</button>
+    </header>
+
+
+
+    <!-- ================= STATISTICS ================= -->
+    <section class="stats-grid">
+
+        <div class="stat-card">
+            <h3>Total Revenue</h3>
+            <p class="value" id="total-revenue">0.00 EGP</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Orders Count</h3>
+            <p class="value" id="total-orders">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Products in Stock</h3>
+            <p class="value" id="total-products">0</p>
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= ADD PRODUCT ================= -->
+    <section class="panel">
+        <h2>Add New Product</h2>
+
+        <form id="add-product-form" class="form-grid">
+
+            <input type="text" id="p-name" placeholder="Product Name" required>
+
+            <input type="number" id="p-price" placeholder="Price" step="0.5" required>
+
+            <input type="number" id="p-stock" placeholder="Initial Stock" required>
+
+            <input type="text" id="p-barcode" placeholder="Scan or type barcode">
+
+            <input type="text" id="p-category" placeholder="Category">
+
+            <input type="file" id="p-image" accept="image/*">
+
+            <button type="submit" class="btn success full-width">
+                ADD PRODUCT
+            </button>
+
+        </form>
+    </section>
+
+
+
+    <!-- ================= INVENTORY ================= -->
+    <section class="panel">
+        <h2>Inventory Status</h2>
+
+        <table class="inventory-table">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Details</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="inventory-body">
+                <!-- JS -->
+            </tbody>
+        </table>
+    </section>
+
+
+
+    <!-- ================= SALES ================= -->
+    <section class="panel">
+        <h2>Recent Sales Transactions</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Date & Time</th>
+                    <th>Cashier</th>
+                    <th>Total</th>
+                    <th>Items</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="sales-table-body">
+                <!-- JS -->
+            </tbody>
+        </table>
+    </section>
+
+
+
+    <!-- ================= USERS ================= -->
+    <section class="panel">
+        <h2>System Users</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Password</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="users-table-body">
+                <!-- JS -->
+            </tbody>
+        </table>
+    </section>
+
+</div>
+
+
+
+<!-- ===================================================== -->
+<!-- ======================= MODALS ======================= -->
+<!-- ===================================================== -->
+
+
+<!-- Delete Modal -->
+<div id="delete-modal" class="modal hidden">
+    <div class="modal-content">
+        <h3 class="danger-text">Warning!</h3>
+
+        <p id="delete-msg">Are you sure?</p>
+
+        <div class="modal-actions">
+            <button id="confirm-delete-btn" class="btn danger">Delete</button>
+            <button id="cancel-delete-btn" class="btn">Cancel</button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Edit Stock Modal -->
+<div id="edit-modal" class="modal hidden">
+    <div class="modal-content">
+
+        <h3>Update Stock</h3>
+
+        <p id="edit-product-name"></p>
+
+        <input type="number" id="new-stock-input" placeholder="New Quantity">
+
+        <div class="modal-actions">
+            <button id="save-stock-btn" class="btn success">Save</button>
+            <button id="cancel-edit-btn" class="btn">Cancel</button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Sale Details Modal -->
+<div id="sale-modal" class="modal hidden">
+    <div class="modal-content">
+
+        <h3>Transaction Details</h3>
+
+        <div id="sale-receipt-content"></div>
+
+        <div class="modal-actions">
+            <button id="sale-print-btn" class="btn">Print</button>
+            <button id="close-sale-modal-btn" class="btn danger">Close</button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- ================= JS ================= -->
+<script type="module" src="js/dashboard.js"></script>
+
+</body>
+</html>

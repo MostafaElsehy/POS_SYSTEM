@@ -1,5 +1,5 @@
 /* ===============================
-   1) Design System - CSS Variables
+    Design System - CSS Variables
    =============================== */
 :root {
   --primary: #4a90e2;
@@ -14,7 +14,7 @@
 }
 
 /* ===============================
-   2) Reset & Base Styles
+    Reset & Base Styles
    =============================== */
 * {
   margin: 0;
@@ -31,7 +31,7 @@ body {
 }
 
 /* ===============================
-   3) Utility Classes
+    Utility Classes
    =============================== */
 .hidden {
   display: none !important;
@@ -42,7 +42,7 @@ body {
 }
 
 /* ===============================
-   4) Buttons System
+    Buttons System
    =============================== */
 .btn {
   padding: 0.5rem 1rem;
@@ -94,7 +94,7 @@ body {
 }
 
 /* ===============================
-   5) Inputs & Selects
+  Inputs & Selects
    =============================== */
 input, select {
   width: 100%;
@@ -113,7 +113,7 @@ input:focus, select:focus {
 }
 
 /* ===============================
-   6) Toast Notifications
+    Toast Notifications
    =============================== */
 .toast {
   position: fixed;

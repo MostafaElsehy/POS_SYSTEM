@@ -1,0 +1,109 @@
+/* ===============================
+   Variables 
+================================= */
+:root {
+  --primary-color: #2563eb;
+  --bg-light: #f3f4f6;
+  --text-dark: #222;
+}
+
+
+/* ===============================
+    Wrapper
+================================= */
+.auth-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--bg-light);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ===============================
+    Authentication Card
+================================= */
+.auth-box {
+  background: #fff;
+  width: 100%;
+  max-width: 400px;
+
+  padding: 40px;
+
+  border-radius: 14px;
+
+  text-align: center;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ===============================
+   Title
+================================= */
+.auth-box h2 {
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+
+/* ===============================
+ Inputs 
+================================= */
+.auth-box input {
+  width: 100%;
+  padding: 10px 12px;
+
+  margin-bottom: 12px;
+
+  border-radius: 6px;
+  border: 1px solid #ddd;
+
+  outline: none;
+}
+
+.auth-box input:focus {
+  border-color: var(--primary-color);
+}
+
+
+/* ===============================
+  Button
+================================= */
+.auth-box button {
+  width: 100%;
+  padding: 10px;
+
+  background: var(--primary-color);
+  color: white;
+
+  border: none;
+  border-radius: 6px;
+
+  cursor: pointer;
+  font-weight: bold;
+
+  transition: 0.2s;
+}
+
+.auth-box button:hover {
+  opacity: 0.9;
+}
+
+
+/* ===============================
+   Toggle Link
+================================= */
+.toggle-link {
+  display: block;
+
+  margin-top: 15px;
+
+  color: var(--primary-color);
+  text-decoration: underline;
+
+  cursor: pointer;
+  font-size: 14px;
+}

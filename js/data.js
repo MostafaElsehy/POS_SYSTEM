@@ -1,43 +1,31 @@
-// الصورة الافتراضية للمنتجات
-const DEFAULT_IMG = "assets/images/default-product.png";
+export const DEFAULT_IMG = "assets/logo.png"; // تأكد أن لديك صورة بهذا الاسم في مجلد assets
 
-
-// المنتجات الابتدائية
-const initialProducts = [
+export const initialProducts = [
   {
-    id: 1,
-    barcode: "EL-1001",
+    id: 101,
+    barcode: "111",
     name: "Wireless Mouse",
-    price: 250,
+    price: 150,
     stock: 20,
     image: DEFAULT_IMG,
     category: "Electronics",
   },
   {
-    id: 2,
-    barcode: "EL-1002",
+    id: 102,
+    barcode: "222",
     name: "Keyboard",
-    price: 400,
-    stock: 15,
+    price: 300,
+    stock: 10,
     image: DEFAULT_IMG,
     category: "Electronics",
   },
   {
-    id: 3,
-    barcode: "AC-2001",
+    id: 103,
+    barcode: "333",
     name: "USB Cable",
     price: 50,
-    stock: 50,
+    stock: 100,
     image: DEFAULT_IMG,
     category: "Accessories",
   },
-  {
-    id: 4,
-    barcode: "AC-2002",
-    name: "Phone Charger",
-    price: 120,
-    stock: 30,
-    image: DEFAULT_IMG,
-    category: "Accessories",
-  }
 ];

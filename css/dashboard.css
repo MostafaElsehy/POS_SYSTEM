@@ -2,7 +2,7 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: 20px;
-  height: 100vh;
+  min-height: 100vh;
   overflow-y: auto;
 }
 
@@ -121,4 +121,33 @@
 .status-out {
   background: #fee2e2;
   color: #991b1b;
+}
+
+/* Responsive dashboard */
+@media (max-width: 900px) {
+  .dash-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .inventory-table {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .dash-container {
+    padding: 12px;
+  }
+  .panel {
+    padding: 16px;
+  }
+  .stat-card {
+    padding: 18px;
+  }
+  .inventory-table th,
+  .inventory-table td {
+    padding: 8px;
+    font-size: 0.8rem;
+  }
 }

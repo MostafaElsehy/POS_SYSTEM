@@ -19,8 +19,23 @@
 body {
   background: var(--bg-light);
   color: var(--text-main);
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+}
+
+/* Mobile base sizing */
+@media (max-width: 600px) {
+  body {
+    font-size: 20px;
+  }
+  .btn {
+    padding: 14px 20px;
+    font-size: 1.05rem;
+  }
+  input,
+  select {
+    padding: 14px;
+    font-size: 1.05rem;
+  }
 }
 
 /* Utilities */

@@ -1,83 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>POS Terminal</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>POS Terminal</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/pos.css" />
+  </head>
+  <body>
+    <div class="pos-container">
+      <main class="products-section">
+        <header class="top-bar">
+          <div style="font-weight: bold; font-size: 1.2rem">
+            Cashier: <span id="user-name">...</span>
+          </div>
+          <div class="search-box">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search by Name or Scan Barcode..."
+            />
+          </div>
+          <button id="logout-btn" class="btn btn-danger btn-sm">Exit</button>
+        </header>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/pos.css">
-</head>
-<body>
+        <div id="grid-products" class="grid-products"></div>
+      </main>
 
-  <div class="pos-container">
-
-    <!-- ===== Products Section ===== -->
-    <main class="products-section">
-
-      <!-- Top Bar -->
-      <div class="top-bar">
-        <div>
-          <strong>Cashier:</strong>
-          <span id="user-name">...</span>
+      <aside class="cart-sidebar">
+        <div class="cart-header">
+          <h3>Current Order</h3>
         </div>
 
-        <input
-          type="text"
-          id="search-input"
-          placeholder="Search by Name or Scan Barcode..."
-        >
+        <div id="cart-items" class="cart-items"></div>
 
-        <button id="logout-btn" class="btn-danger">Exit</button>
-      </div>
-
-      <!-- Products Grid -->
-      <div id="grid-products"></div>
-
-    </main>
-
-
-    <!-- ===== Cart Sidebar ===== -->
-    <aside class="cart-sidebar">
-
-      <h2>Current Order</h2>
-
-      <div id="cart-items"></div>
-
-      <div class="cart-footer">
-        <div>
-          <strong>Total</strong>
-          <span id="total-price">0.00 EGP</span>
+        <div class="cart-footer">
+          <div class="total-row">
+            <span>Total</span>
+            <span id="total-price">0.00 EGP</span>
+          </div>
+          <button
+            id="checkout-btn"
+            class="btn btn-success full-width"
+            style="padding: 15px; font-size: 1.1rem"
+          >
+            PAY & PRINT
+          </button>
         </div>
-
-        <button id="checkout-btn">PAY & PRINT</button>
-      </div>
-
-    </aside>
-
-  </div>
-
-
-  <!-- ===== Receipt Modal ===== -->
-  <div id="receipt-modal" class="hidden">
-    <div class="modal-content">
-
-      <h2>Payment Successful</h2>
-
-      <div id="receipt-content"></div>
-
-      <div class="modal-actions">
-        <button id="print-btn">Print Receipt</button>
-        <button id="close-modal">Close</button>
-      </div>
-
+      </aside>
     </div>
-  </div>
 
+    <div id="receipt-modal" class="modal-overlay hidden">
+      <div class="modal-box">
+        <h3>Payment Successful</h3>
+        <div id="receipt-content" class="receipt-paper"></div>
+        <div style="display: flex; gap: 10px; justify-content: center">
+          <button id="print-btn" class="btn btn-primary">Print Receipt</button>
+          <button id="close-modal" class="btn btn-danger">Close</button>
+        </div>
+      </div>
+    </div>
 
-  <!-- JavaScript -->
-  <script type="module" src="js/pos.js"></script>
-
-</body>
+    <script type="module" src="js/pos.js"></script>
+  </body>
 </html>

@@ -1,24 +1,18 @@
 export function saveToLocal(key, data) {
   try {
-    const jsonData = JSON.stringify(data); // تحويل البيانات إلى JSON String
-    localStorage.setItem(key, jsonData); // التخزين بالمفتاح
-  } catch (error) {
-    console.error("Storage Full!");
+    localStorage.setItem(key, JSON.stringify(data));
+  } catch (e) {
+    console.log("Storage Full! Image too large.");
   }
 }
 
 export function getFromLocal(key) {
-  const storedData = localStorage.getItem(key);
-
-  // لو مفيش بيانات
-  if (!storedData) {
-    return null;
-  }
-
+  const data = localStorage.getItem(key);
+  if (!data) return null;
   try {
-    return JSON.parse(storedData); // تحويل من JSON إلى Object
-  } catch (error) {
-    console.error("Invalid data for this key.");
+    return JSON.parse(data);
+  } catch (e) {
+    console.error(`Failed to parse data for key "${key}" from localStorage`, e);
     return null;
   }
 }

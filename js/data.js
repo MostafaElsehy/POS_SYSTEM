@@ -1,4 +1,5 @@
-export const DEFAULT_IMG = "assets/logo.png"; // تأكد أن لديك صورة بهذا الاسم في مجلد assets
+// Use a single shared lightweight logo for all product thumbnails
+export const DEFAULT_IMG = "assets/logo.png";
 
 // 50 initial products (unique ids & barcodes)
 export const initialProducts = [

@@ -28,9 +28,23 @@ if (!user) {
 
 // Load Data
 let products = getFromLocal("products_db");
-// ملاحظة: لو مفيش منتجات خالص، الكاشير هيشوف الصفحة فاضية لحد ما الأدمن يضيف
-if (!products) {
+// Seed with initial products + any existing stored products (no duplicates by id)
+if (!Array.isArray(products)) {
   products = [];
+}
+{
+  const byId = new Map();
+  // 1) initial products
+  for (const p of initialProducts) {
+    if (!p || typeof p !== "object") continue;
+    byId.set(p.id, { ...p });
+  }
+  // 2) stored products (admin-added override defaults)
+  for (const p of products) {
+    if (!p || typeof p !== "object") continue;
+    byId.set(p.id, { ...p });
+  }
+  products = Array.from(byId.values());
   saveToLocal("products_db", products);
 }
 

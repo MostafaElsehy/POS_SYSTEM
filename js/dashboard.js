@@ -1,6 +1,6 @@
 import { saveToLocal, getFromLocal } from "./storage.js";
 import { formatMoney, convertImageToBase64, showToast } from "./utils.js";
-import { DEFAULT_IMG } from "./data.js";
+import { DEFAULT_IMG, initialProducts } from "./data.js";
 
 function getCurrentUserSafe() {
   try {
@@ -26,10 +26,34 @@ if (!currentUser || currentUser.role !== "admin") {
   window.location.href = "index.html";
 }
 
-// 2. Load Data (قراءة مباشرة من المخزن بدون أي تعديل)
+// 2. Load Data (قراءة مباشرة من المخزن ثم دمج المنتجات الابتدائية)
 let sales = getList("sales_db");
 let products = getList("products_db");
 let users = getList("users_db");
+
+// تأكد أن قائمة المنتجات تحتوي دائمًا على initialProducts + أي منتجات مضافة من الأدمن
+const seedInitialProductsIfMissing = () => {
+  let stored = getList("products_db");
+  if (!Array.isArray(stored)) stored = [];
+
+  const byId = new Map();
+  // 1) المنتجات الابتدائية
+  for (const p of initialProducts) {
+    if (!p || typeof p !== "object") continue;
+    byId.set(p.id, { ...p });
+  }
+  // 2) المنتجات الموجودة في المخزن (تعديل الأدمن يغلب)
+  for (const p of stored) {
+    if (!p || typeof p !== "object") continue;
+    byId.set(p.id, { ...p });
+  }
+
+  const merged = Array.from(byId.values());
+  saveToLocal("products_db", merged);
+  products = merged;
+};
+
+seedInitialProductsIfMissing();
 
 function updateStats() {
   sales = getList("sales_db");
